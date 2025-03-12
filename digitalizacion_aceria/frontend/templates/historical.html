@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Consulta de Datos Históricos</h1>
+
+<form id="historical-form">
+    <label for="start-date">Fecha de Inicio:</label>
+    <input type="date" id="start-date" name="start_date" required>
+
+    <label for="end-date">Fecha de Fin:</label>
+    <input type="date" id="end-date" name="end_date" required>
+
+    <button type="submit">Consultar</button>
+</form>
+
+<div id="historical-data">
+    {% if data %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Valor</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for entry in data %}
+        <tr>
+            <td>{{ entry.id }}</td>
+            <td>{{ entry.value }}</td>
+            <td>{{ entry.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No hay datos para el rango seleccionado.</p>
+    {% endif %}
+</div>
+{% endblock %}

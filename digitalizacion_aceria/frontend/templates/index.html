@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos en Tiempo Real</title>
+    <link rel="stylesheet" href="{{ url_fir('static', filename= 'css/style.css')}}">
+
+</head>
+<body>
+    <h1>Últimos 10 Registros</h1>
+    <table>
+        <tr>
+            <tr>ID</tr>
+            <tr>Valor</tr>
+            <tr>Timestamp</tr>
+        </tr>
+        {% for entry in data %}
+        <tr>
+            <tr>{{ entry.id }}</tr>
+            <tr>{{ entry.value }}</tr>
+            <tr>{{ entry.timestamp }}</tr>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</body>
+</html>
